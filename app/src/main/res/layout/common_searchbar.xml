@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:background="@drawable/radis8_layout_shape3"
+    >
+
+
+
+        <EditText
+            android:id="@+id/edt_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/dp45"
+            android:layout_marginLeft="@dimen/dp8"
+            android:layout_marginRight="@dimen/dp8"
+            android:drawableLeft="@drawable/search"
+            android:hint="盘点编号/盘点描述"
+            android:paddingLeft="@dimen/dp5"
+            android:textSize="@dimen/sp12"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜索"
+            android:paddingRight="@dimen/dp8"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/guide_blue"
+            />
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/white"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp5"
+        >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/icon_black_back_28"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/sp16"
+            android:layout_gravity="center_vertical"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_common_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="标题"
+        android:layout_centerVertical="true"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/dp10"
+        android:paddingLeft="@dimen/dp10"
+        android:paddingRight="@dimen/dp10"
+        android:paddingTop="@dimen/dp5"
+        android:paddingBottom="@dimen/dp5"
+        android:id="@+id/ll_right"
+        android:visibility="gone"
+
+        >
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/sp14"
+        />
+
+    <ImageView
+        android:id="@+id/iv_fun"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:layout_marginLeft="@dimen/dp3"
+        android:src="@drawable/arrow_right_triangle"
+        android:scaleType="fitXY"
+        />
+    </LinearLayout>
+
+
+</RelativeLayout>

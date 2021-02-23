@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radis8_layout_shape2"
+        >
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp10"
+            android:text="完成工作流任务分配"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp15"
+            android:textColor="@color/tab_unchecked"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/title_tv"
+            android:layout_marginTop="@dimen/dp50"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginRight="@dimen/dp12"
+                >
+                <ImageView
+                    android:id="@+id/iv_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:padding="@dimen/dp5"
+                    />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp12"
+                    android:text="同意"
+                    android:textColor="@color/tab_unchecked"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="left"
+                android:layout_marginLeft="@dimen/dp10"
+                >
+                <ImageView
+                    android:id="@+id/iv_disagree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp5"
+                    />
+                <TextView
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp12"
+                    android:text="驳回"
+                    android:textColor="@color/tab_unchecked"
+
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/input_et"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:layout_below="@+id/ll_1"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:gravity="center_vertical|left"
+            android:hint="同意"
+            android:paddingLeft="@dimen/dp3"
+            android:paddingRight="@dimen/dp3"
+            android:maxLines="3"
+            android:textSize="@dimen/sp12"
+            android:textColor="@color/tab_unchecked"
+
+            />
+
+<!--        <TextView-->
+<!--            android:id="@+id/number_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginRight="@dimen/dp25"-->
+<!--            android:textColor="@color/grayCC"-->
+<!--            android:textSize="@dimen/sp14" />-->
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:orientation="horizontal"
+            android:layout_below="@+id/input_et"
+            android:layout_marginTop="@dimen/dp40"
+            >
+            <TextView
+                android:id="@+id/finish_tv"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:background="@color/guide_blue"
+                android:textSize="@dimen/sp16"
+                />
+            <TextView
+                android:id="@+id/cancel_tv"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:background="@color/guide_blue"
+                android:textSize="@dimen/sp16" />
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

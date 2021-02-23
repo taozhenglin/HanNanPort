@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp5"
+    android:layout_marginRight="@dimen/dp5"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_margin="@dimen/dp3"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/dp10"
+        >
+
+        <EditText
+            android:id="@+id/edt_search1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp8"
+            android:layout_marginRight="@dimen/dp8"
+            android:layout_weight="1"
+            android:hint="设备编号"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dp5"
+            android:singleLine="true"
+            android:background="@null"
+            android:textSize="@dimen/sp12"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+            />
+        <ImageView
+            android:id="@+id/iv_search1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/search"
+            android:layout_margin="@dimen/dp3"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+<View
+    android:layout_width="@dimen/dp20"
+    android:layout_height="match_parent">
+
+</View>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edt_search2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp8"
+            android:layout_marginRight="@dimen/dp8"
+            android:layout_weight="1"
+            android:hint="设备编号"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dp5"
+            android:singleLine="true"
+            android:textSize="@dimen/sp12"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+
+            android:background="@null"
+
+            />
+        <ImageView
+            android:id="@+id/iv_search2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/search"
+            android:layout_margin="@dimen/dp3"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp8"
+        android:paddingLeft="@dimen/dp10"
+        android:text="搜索"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/sp14"
+        android:layout_margin="@dimen/dp10"
+        />
+
+
+</LinearLayout>

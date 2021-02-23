@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.scwang.wave.MultiWaveHeader
+
+        android:id="@+id/waveHeader"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:mwhVelocity="1"
+        app:mwhProgress="1"
+        app:mwhGradientAngle="45"
+        app:mwhWaveHeight="50dp"
+        app:mwhColorAlpha="0.45"
+        app:mwhStartColor="@color/colorAccent"
+        app:mwhCloseColor="@color/colorAccent2"
+        app:mwhWaves="MultiWave">
+
+    </com.scwang.wave.MultiWaveHeader>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/login_bg"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="@dimen/dp40"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢迎登陆 海南港航控股有限公司———海南港航设备物资管理系统项目 "
+            android:textColor="@color/textColor"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="-1"
+            android:scrollHorizontally="true"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <ImageView
+
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/name"
+               />
+            <EditText
+                android:id="@+id/edt_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:hint="@string/user_name"
+                android:inputType="text"
+                android:selectAllOnFocus="true"
+
+                />
+
+            <ImageView
+                android:id="@+id/iv_clear1"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/clear"
+                >
+
+            </ImageView>>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+
+            >
+            <ImageView
+
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/account2"
+                />
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:hint="@string/user_pwd"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+            <ImageView
+                android:id="@+id/iv_clear2"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/eye_close"
+                >
+
+            </ImageView>>
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_modify_pwd"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:layout_marginRight="@dimen/dp20"-->
+<!--            android:gravity="center|right"-->
+<!--            android:text="修改密码"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            />-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@+id/tv_login_in"
+        android:layout_marginBottom="@dimen/dp40"
+
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="当前环境："
+            android:gravity="center"
+            android:drawableTop="@drawable/current"
+            android:id="@+id/tv_current"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="当前版本："
+            android:gravity="center"
+            android:drawableTop="@drawable/version"
+            android:id="@+id/tv_version"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_login_in"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="@dimen/dp20"
+        android:layout_marginRight="@dimen/dp20"
+        android:background="@drawable/shape_radis_30_accent"
+        android:gravity="center"
+        android:text="登       录"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp40"
+
+        />
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/colorAccent</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent2">#9903DAC5</color>
+
+    <color name="white">#ffffff</color>
+    <color name="grenn">#00ff00</color>
+    <color name="yellow">#ffff00</color>
+    <color name="orange">#f5b24e</color>
+
+    <color name="textColor">#FF000000</color>
+    <color name="main_backgroundColor">#FFFAFAFA</color>
+    <color name="gry33">#33000000</color>
+    <color name="blue">#0000ff</color>
+    <!--港迪蓝 -->
+    <color name="guide_blue">#008FD7</color>
+    <!--粉蓝色 -->
+    <color name="powderblue">#B0E0E6</color>
+    <!--浅蓝色-->
+    <color name="wathet">#ADD8EE</color>
+    <color name="tab_unchecked">#757575</color>
+    <!--菜单栏 描边颜色 -->
+    <color name="border_clo">#ccc</color>
+
+
+
+</resources>

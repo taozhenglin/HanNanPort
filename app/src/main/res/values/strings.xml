@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HaiNanProject</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="user_name">用户名</string>
+    <string name="user_pwd">密码</string>
+    <string name="GETDATAFAILED">获取数据失败</string>
+    <string name="just_15" translatable="false">15分钟前</string>
+    <string name="just_30" translatable="false">30分钟前</string>
+    <string name="just_1hour" translatable="false">1小时前</string>
+    <string name="Days_ago" translatable="false">天前</string>
+    <string name="An_hour_ago" translatable="false">小时前</string>
+    <string name="just" translatable="false">刚刚</string>
+    <string name="UNKNOW_ERROR">未知错误</string>
+</resources>
+
+

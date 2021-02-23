@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8 (2)" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/daterangepicker" />
+            <option value="$PROJECT_DIR$/loadingdialog" />
+            <option value="$PROJECT_DIR$/magicindicator" />
+            <option value="$PROJECT_DIR$/qrcodecore" />
+            <option value="$PROJECT_DIR$/refresh-drawable-paint" />
+            <option value="$PROJECT_DIR$/refresh-drawable-path" />
+            <option value="$PROJECT_DIR$/refresh-footer-ball" />
+            <option value="$PROJECT_DIR$/refresh-footer-classics" />
+            <option value="$PROJECT_DIR$/refresh-header" />
+            <option value="$PROJECT_DIR$/refresh-header-classics" />
+            <option value="$PROJECT_DIR$/refresh-header-falsify" />
+            <option value="$PROJECT_DIR$/refresh-header-material" />
+            <option value="$PROJECT_DIR$/refresh-header-radar" />
+            <option value="$PROJECT_DIR$/refresh-header-two-level" />
+            <option value="$PROJECT_DIR$/refresh-layout" />
+            <option value="$PROJECT_DIR$/refresh-layout-kernel" />
+            <option value="$PROJECT_DIR$/zxing" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

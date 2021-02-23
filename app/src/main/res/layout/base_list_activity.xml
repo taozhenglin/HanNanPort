@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/include1"
+        layout="@layout/activity_common_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+    </include>
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/common_searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_below="@+id/include1"
+        >
+
+    </include>
+
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include2"
+        app:srlEnableLoadMore="true"
+        app:srlEnableAutoLoadMore="false"
+        app:srlEnablePreviewInEditMode="true"
+        >
+
+        <com.scwang.smart.refresh.footer.BallPulseFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:background="@android:color/white"
+            android:layout_marginTop="@dimen/dp5"
+
+            />
+        <com.scwang.smart.refresh.header.TaurusHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    <ImageView
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/nodata2"
+        android:scaleType="centerCrop"
+        android:layout_below="@+id/include2"
+        android:visibility="gone"
+
+
+        />
+    <ImageView
+        android:id="@+id/iv_warm2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/nonet2"
+        android:visibility="gone"
+
+        />
+
+</RelativeLayout>
