@@ -36,4 +36,5 @@
     <dimen name="dp1">1dp</dimen>
     <dimen name="dp65">65dp</dimen>
     <dimen name="dp0">0dp</dimen>
+    <dimen name="dp17">17dp</dimen>
 </resources>

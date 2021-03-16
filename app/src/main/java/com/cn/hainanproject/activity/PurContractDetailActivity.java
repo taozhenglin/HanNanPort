@@ -42,6 +42,7 @@ import com.cn.hainanproject.utils.LogUtils;
 import com.cn.hainanproject.utils.SharedPreferencesUtil;
 import com.cn.hainanproject.utils.StatusBarUtils;
 import com.cn.hainanproject.utils.Tools;
+import com.cn.hainanproject.view.MyPagerTransition;
 import com.guideelectric.loadingdialog.view.LoadingDialog;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -128,8 +129,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
     private ArrayList<String> titles;
     private ArrayList<Fragment> fragmentList;
     private Fragment currentFragment;
-    private String title;
-    ImageView iv_fun;
+     String title;
     private LoadingDialog ld;
     private PopupWindow pop;
     PurchseContractListBean.ResultBean.ResultlistBean listBean;
@@ -150,14 +150,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
         }
         ld = new LoadingDialog(this);
         initView();
-        initEvent();
     }
-
-    private void initEvent() {
-//        ll_back.setOnClickListener(this);
-//        ll_right.setOnClickListener(this);
-    }
-
     private void initView() {
         tvCommonTitle.setText(title);
 //        ll_back = findViewById(R.id.ll_back);
@@ -169,7 +162,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
 //        iv_fun.setVisibility(View.GONE);
 //        iv_fun.setImageDrawable(getResources().getDrawable(R.drawable.arrow_right_triangle));
 //        tv_title.setText(listBean.getButtonValue());
-        tvCommonTitle.setTextColor(getResources().getColor(R.color.white));
+//        tvCommonTitle.setTextColor(getResources().getColor(R.color.white));
         llContainer.setVisibility(View.VISIBLE);
         SpannableString highlight = HighLightUtils.highlight(this, "合同编号：" + listBean.getCONTRACTNUM(), listBean.getCONTRACTNUM(), "#03DAC5", 0, 0);
         tvNo.setText(highlight);
@@ -188,8 +181,8 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
         tvCompany.setText("公司：" + listBean.getVENDORDESC());
 //        tvVenderDesc.setText("供应商描述:"+listBean.getVENDORDESC());
         tvAddress.setText("地址：" + listBean.getADDRESS1());
-        tvContact.setText("联系人：" + listBean.getPHONENUM());
-        tvPhone.setText("电话：" + listBean.getCONTACT());
+        tvContact.setText("联系人：" + listBean.getCONTACT());
+        tvPhone.setText("电话：" + listBean.getPHONENUM());
 //        if (title.equals("点巡检工单详情")){
 //            tvFaultTime.setText("工单类型：" + listBean.getFailureTime());
 //            tvFaultType.setVisibility(View.GONE);
@@ -233,7 +226,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
         }
         fragmentList.clear();
         ContractLineFragment contractLineFragment = new ContractLineFragment(this, listBean);//合同行
-        AttachFragment attachFragment = new AttachFragment(this, listBean);//附件
+        AttachFragment attachFragment = new AttachFragment(this, listBean,1);//附件
         fragmentList.add(contractLineFragment);
         fragmentList.add(attachFragment);
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList, titles);
@@ -241,6 +234,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
         final CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);
         pager.setOffscreenPageLimit(fragmentList.size());
+        pager.setPageTransformer(false,new MyPagerTransition());
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
@@ -481,6 +475,7 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ll_back:
+                finish();
                 break;
             case R.id.ll_right:
                 break;

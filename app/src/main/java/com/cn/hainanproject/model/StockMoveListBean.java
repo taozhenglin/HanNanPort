@@ -9,14 +9,18 @@ public class StockMoveListBean {
     /**
      * errcode : GLOBAL-S-0
      * errmsg : 请求成功
+     * loginid : null
      * personid : null
-     * result : {"curpage":1,"resultlist":[{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"IT材料","CREWID":"","DISPLAYNAME":"系统管理员","FROMSTORELOC":"YD","INVUSEID":421,"INVUSENUM":"1030","REPORTDATE":"2020-08-31 17:55:33","REPORTEDBY":"MAXADMIN","STATUS":"已输入"},{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"车辆用","CREWID":"","DISPLAYNAME":"冯洲豪","FROMSTORELOC":"GJ","INVUSEID":386,"INVUSENUM":"1028","REPORTDATE":"2020-08-29 14:40:36","REPORTEDBY":"FENGZHH","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"工程技术部","A_USEFOR":"叉车","CREWID":"物资","DISPLAYNAME":"贾伟峰","FROMSTORELOC":"GJ","INVUSEID":385,"INVUSENUM":"1027","REPORTDATE":"2020-08-29 14:01:23","REPORTEDBY":"JIAWF","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"工程技术部","A_USEFOR":"车辆用","CREWID":"物资","DISPLAYNAME":"贾伟峰","FROMSTORELOC":"BSJS","INVUSEID":384,"INVUSENUM":"1026","REPORTDATE":"2020-08-29 13:52:12","REPORTEDBY":"JIAWF","STATUS":"完成"},{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"堆高机（柴油）","CREWID":"","DISPLAYNAME":"系统管理员","FROMSTORELOC":"GJ","INVUSEID":382,"INVUSENUM":"1024","REPORTDATE":"2020-08-29 13:36:36","REPORTEDBY":"MAXADMIN","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"信息中心","A_USEFOR":"叉车","CREWID":"工程部经理室","DISPLAYNAME":"沈建强","FROMSTORELOC":"YN","INVUSEID":343,"INVUSENUM":"1021","REPORTDATE":"2020-08-28 14:05:43","REPORTEDBY":"SHENJQ","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"信息中心","A_USEFOR":"IT办公耗材","CREWID":"物资","DISPLAYNAME":"苏虹","FROMSTORELOC":"YD","INVUSEID":322,"INVUSENUM":"1020","REPORTDATE":"","REPORTEDBY":"SUHONG","STATUS":"完成"}],"showcount":20,"totalpage":1,"totalresult":7}
+     * result : {"curpage":1,"resultlist":[{"CREATEBY":"MAXADMIN","CREATEDATE":"2021-02-20 15:40:37","DESCRIPTION":"1","FROMSTORELOC":"A08","INVUSEID":487,"INVUSENUM":"100236","SITEID":"COSCOJZ","STATUS":"申请建立"},{"CREATEBY":"LIPINGLONG","CREATEDATE":"2021-01-20 16:28:42","DESCRIPTION":"更换需要","FROMSTORELOC":"A11","INVUSEID":462,"INVUSENUM":"100232","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUXIAOBO","CREATEDATE":"2021-01-20 15:8:38","DESCRIPTION":"生产需要","FROMSTORELOC":"A08","INVUSEID":460,"INVUSENUM":"100230","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"LIBIN","CREATEDATE":"2021-01-19 10:19:17","DESCRIPTION":"海口技术部 普通 李斌 107067 1070211034-1 107067","FROMSTORELOC":"A03","INVUSEID":451,"INVUSENUM":"100221","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-18 11:53:45","DESCRIPTION":"海口技术部 普通 周昭家 106841 1070210060-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":447,"INVUSENUM":"100217","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 17:18:2","DESCRIPTION":"海口技术部 普通 吴多颖 106170 1070201011-1 电线断","FROMSTORELOC":"A03","INVUSEID":439,"INVUSENUM":"100216","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 17:6:2","DESCRIPTION":"海口技术部 普通 吴多颖 106169 1070212005-1 变速箱故障","FROMSTORELOC":"A03","INVUSEID":438,"INVUSENUM":"100215","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 15:55:5","DESCRIPTION":"海口技术部 普通 吴多颖 106163 1070212006-1 发动机SPN报警，代码158，电池电位低","FROMSTORELOC":"A03","INVUSEID":437,"INVUSENUM":"100214","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-15 10:3:43","DESCRIPTION":"海口技术部 普通 周昭家 106168 1070210042-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":435,"INVUSENUM":"100212","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-15 9:58:55","DESCRIPTION":"海口技术部 普通 周昭家 106168 1070210042-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":434,"INVUSENUM":"100211","SITEID":"COSCOJZ","STATUS":"完成"}],"showcount":10,"totalpage":6,"totalresult":59}
+     * username : null
      */
 
     private String errcode;
     private String errmsg;
+    private Object loginid;
     private Object personid;
     private ResultBean result;
+    private Object username;
 
     public String getErrcode() {
         return errcode;
@@ -32,6 +36,14 @@ public class StockMoveListBean {
 
     public void setErrmsg(String errmsg) {
         this.errmsg = errmsg;
+    }
+
+    public Object getLoginid() {
+        return loginid;
+    }
+
+    public void setLoginid(Object loginid) {
+        this.loginid = loginid;
     }
 
     public Object getPersonid() {
@@ -50,13 +62,21 @@ public class StockMoveListBean {
         this.result = result;
     }
 
+    public Object getUsername() {
+        return username;
+    }
+
+    public void setUsername(Object username) {
+        this.username = username;
+    }
+
     public static class ResultBean {
         /**
          * curpage : 1
-         * resultlist : [{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"IT材料","CREWID":"","DISPLAYNAME":"系统管理员","FROMSTORELOC":"YD","INVUSEID":421,"INVUSENUM":"1030","REPORTDATE":"2020-08-31 17:55:33","REPORTEDBY":"MAXADMIN","STATUS":"已输入"},{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"车辆用","CREWID":"","DISPLAYNAME":"冯洲豪","FROMSTORELOC":"GJ","INVUSEID":386,"INVUSENUM":"1028","REPORTDATE":"2020-08-29 14:40:36","REPORTEDBY":"FENGZHH","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"工程技术部","A_USEFOR":"叉车","CREWID":"物资","DISPLAYNAME":"贾伟峰","FROMSTORELOC":"GJ","INVUSEID":385,"INVUSENUM":"1027","REPORTDATE":"2020-08-29 14:01:23","REPORTEDBY":"JIAWF","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"工程技术部","A_USEFOR":"车辆用","CREWID":"物资","DISPLAYNAME":"贾伟峰","FROMSTORELOC":"BSJS","INVUSEID":384,"INVUSENUM":"1026","REPORTDATE":"2020-08-29 13:52:12","REPORTEDBY":"JIAWF","STATUS":"完成"},{"A_DEPT":"信息中心","A_TODEPT":"工程技术部","A_USEFOR":"堆高机（柴油）","CREWID":"","DISPLAYNAME":"系统管理员","FROMSTORELOC":"GJ","INVUSEID":382,"INVUSENUM":"1024","REPORTDATE":"2020-08-29 13:36:36","REPORTEDBY":"MAXADMIN","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"信息中心","A_USEFOR":"叉车","CREWID":"工程部经理室","DISPLAYNAME":"沈建强","FROMSTORELOC":"YN","INVUSEID":343,"INVUSENUM":"1021","REPORTDATE":"2020-08-28 14:05:43","REPORTEDBY":"SHENJQ","STATUS":"完成"},{"A_DEPT":"工程技术部","A_TODEPT":"信息中心","A_USEFOR":"IT办公耗材","CREWID":"物资","DISPLAYNAME":"苏虹","FROMSTORELOC":"YD","INVUSEID":322,"INVUSENUM":"1020","REPORTDATE":"","REPORTEDBY":"SUHONG","STATUS":"完成"}]
-         * showcount : 20
-         * totalpage : 1
-         * totalresult : 7
+         * resultlist : [{"CREATEBY":"MAXADMIN","CREATEDATE":"2021-02-20 15:40:37","DESCRIPTION":"1","FROMSTORELOC":"A08","INVUSEID":487,"INVUSENUM":"100236","SITEID":"COSCOJZ","STATUS":"申请建立"},{"CREATEBY":"LIPINGLONG","CREATEDATE":"2021-01-20 16:28:42","DESCRIPTION":"更换需要","FROMSTORELOC":"A11","INVUSEID":462,"INVUSENUM":"100232","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUXIAOBO","CREATEDATE":"2021-01-20 15:8:38","DESCRIPTION":"生产需要","FROMSTORELOC":"A08","INVUSEID":460,"INVUSENUM":"100230","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"LIBIN","CREATEDATE":"2021-01-19 10:19:17","DESCRIPTION":"海口技术部 普通 李斌 107067 1070211034-1 107067","FROMSTORELOC":"A03","INVUSEID":451,"INVUSENUM":"100221","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-18 11:53:45","DESCRIPTION":"海口技术部 普通 周昭家 106841 1070210060-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":447,"INVUSENUM":"100217","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 17:18:2","DESCRIPTION":"海口技术部 普通 吴多颖 106170 1070201011-1 电线断","FROMSTORELOC":"A03","INVUSEID":439,"INVUSENUM":"100216","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 17:6:2","DESCRIPTION":"海口技术部 普通 吴多颖 106169 1070212005-1 变速箱故障","FROMSTORELOC":"A03","INVUSEID":438,"INVUSENUM":"100215","SITEID":"COSCOJZ","STATUS":"待仓库管理员审核"},{"CREATEBY":"WUDUOYING","CREATEDATE":"2021-01-15 15:55:5","DESCRIPTION":"海口技术部 普通 吴多颖 106163 1070212006-1 发动机SPN报警，代码158，电池电位低","FROMSTORELOC":"A03","INVUSEID":437,"INVUSENUM":"100214","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-15 10:3:43","DESCRIPTION":"海口技术部 普通 周昭家 106168 1070210042-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":435,"INVUSENUM":"100212","SITEID":"COSCOJZ","STATUS":"完成"},{"CREATEBY":"ZHOUZHAOJIA","CREATEDATE":"2021-01-15 9:58:55","DESCRIPTION":"海口技术部 普通 周昭家 106168 1070210042-1 换轮胎","FROMSTORELOC":"A02","INVUSEID":434,"INVUSENUM":"100211","SITEID":"COSCOJZ","STATUS":"完成"}]
+         * showcount : 10
+         * totalpage : 6
+         * totalresult : 59
          */
 
         private int curpage;
@@ -107,30 +127,40 @@ public class StockMoveListBean {
 
         public static class ResultlistBean implements Serializable {
             /**
-             * A_DEPT : 信息中心
-             * A_TODEPT : 工程技术部
-             * A_USEFOR : IT材料
-             * CREWID :
-             * DISPLAYNAME : 系统管理员
-             * FROMSTORELOC : YD
-             * INVUSEID : 421
-             * INVUSENUM : 1030
-             * REPORTDATE : 2020-08-31 17:55:33
-             * REPORTEDBY : MAXADMIN
-             * STATUS : 已输入
+             * CREATEBY : MAXADMIN
+             * CREATEDATE : 2021-02-20 15:40:37
+             * DESCRIPTION : 1
+             * FROMSTORELOC : A08
+             * INVUSEID : 487
+             * INVUSENUM : 100236
+             * SITEID : COSCOJZ
+             * STATUS : 申请建立
              */
 
-            private String A_DEPT;
-            private String A_TODEPT;
-            private String A_USEFOR;
-            private String CREWID;
-            private String DISPLAYNAME;
+            private String CREATEBY;
+            private String CREATEDATE;
+            private String DESCRIPTION;
             private String FROMSTORELOC;
             private int INVUSEID;
             private String INVUSENUM;
-            private String CREATEDATE;
-            private String CREATEBY;
+            private String SITEID;
             private String STATUS;
+
+            public String getCREATEBY() {
+                return CREATEBY;
+            }
+
+            public void setCREATEBY(String CREATEBY) {
+                this.CREATEBY = CREATEBY;
+            }
+
+            public String getCREATEDATE() {
+                return CREATEDATE;
+            }
+
+            public void setCREATEDATE(String CREATEDATE) {
+                this.CREATEDATE = CREATEDATE;
+            }
 
             public String getDESCRIPTION() {
                 return DESCRIPTION;
@@ -138,58 +168,6 @@ public class StockMoveListBean {
 
             public void setDESCRIPTION(String DESCRIPTION) {
                 this.DESCRIPTION = DESCRIPTION;
-            }
-
-            String DESCRIPTION;
-
-            public String getSITEID() {
-                return SITEID;
-            }
-
-            public void setSITEID(String SITEID) {
-                this.SITEID = SITEID;
-            }
-
-            String SITEID;
-
-            public String getA_DEPT() {
-                return A_DEPT;
-            }
-
-            public void setA_DEPT(String A_DEPT) {
-                this.A_DEPT = A_DEPT;
-            }
-
-            public String getA_TODEPT() {
-                return A_TODEPT;
-            }
-
-            public void setA_TODEPT(String A_TODEPT) {
-                this.A_TODEPT = A_TODEPT;
-            }
-
-            public String getA_USEFOR() {
-                return A_USEFOR;
-            }
-
-            public void setA_USEFOR(String A_USEFOR) {
-                this.A_USEFOR = A_USEFOR;
-            }
-
-            public String getCREWID() {
-                return CREWID;
-            }
-
-            public void setCREWID(String CREWID) {
-                this.CREWID = CREWID;
-            }
-
-            public String getDISPLAYNAME() {
-                return DISPLAYNAME;
-            }
-
-            public void setDISPLAYNAME(String DISPLAYNAME) {
-                this.DISPLAYNAME = DISPLAYNAME;
             }
 
             public String getFROMSTORELOC() {
@@ -216,20 +194,12 @@ public class StockMoveListBean {
                 this.INVUSENUM = INVUSENUM;
             }
 
-            public String getCREATEDATE() {
-                return CREATEDATE;
+            public String getSITEID() {
+                return SITEID;
             }
 
-            public void setCREATEDATE(String CREATEDATE) {
-                this.CREATEDATE = CREATEDATE;
-            }
-
-            public String getCREATEBY() {
-                return CREATEBY;
-            }
-
-            public void setCREATEBY(String CREATEBY) {
-                this.CREATEBY = CREATEBY;
+            public void setSITEID(String SITEID) {
+                this.SITEID = SITEID;
             }
 
             public String getSTATUS() {

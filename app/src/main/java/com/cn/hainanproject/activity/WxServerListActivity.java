@@ -1,13 +1,11 @@
 package com.cn.hainanproject.activity;
 
-import android.content.Intent;
 import android.text.SpannableString;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +17,7 @@ import com.cn.hainanproject.base.CommonViewHolder;
 import com.cn.hainanproject.base.Constants;
 import com.cn.hainanproject.base.MyApplication;
 import com.cn.hainanproject.model.PostData;
-import com.cn.hainanproject.model.PurchseContractListBean;
+import com.cn.hainanproject.model.WorkOrderListBean;
 import com.cn.hainanproject.net.CallBackUtil;
 import com.cn.hainanproject.net.OkhttpUtil;
 import com.cn.hainanproject.utils.HighLightUtils;
@@ -40,9 +38,9 @@ import okhttp3.Call;
 
 /**
  * Created by tzl
- * on 2021/2/8
+ * on 2021/3/16
  */
-public class ProjectContractListActivity extends BaseListActivity {
+public class WxServerListActivity extends BaseListActivity {
     private int currentPageNum = 1;
 
     //    private EditText edt_search_contract;
@@ -50,13 +48,21 @@ public class ProjectContractListActivity extends BaseListActivity {
     private TextView tv_search;
     private int totalpage;
     private LoadingDialog ld;
-    private CommonAdapter<PurchseContractListBean.ResultBean.ResultlistBean> adapter;
+    private CommonAdapter<WorkOrderListBean.ResultBean.ResultlistBean> adapter;
+    private String title;
+    private String type;
+
+
 
     @Override
     public void initView() {
-        tv_common_title.setText("项目合同");
-        edt_search.setHint("合同编号/描述");
+        title=getIntent().getStringExtra("title");
+        type=getIntent().getStringExtra("type");
+        tv_common_title.setText(title);
+
     }
+
+
 
     public void initEvent() {
         ld = new LoadingDialog(this);
@@ -83,23 +89,21 @@ public class ProjectContractListActivity extends BaseListActivity {
 
     }
     private void query() {
-
         LogUtils.d("query");
         ld.show();
         String url = Constants.COMMONURL;
         JSONObject object = new JSONObject();
-        object.put("appid", "PURCHVIEW");
-        object.put("objectname", "PURCHVIEW");
+        object.put("appid", "WORKORDER");
+        object.put("objectname", "WORKORDER");
         object.put("curpage", currentPageNum);
         object.put("showcount", 10);
         object.put("option", "read");
-        object.put("orderby", "STARTDATE DESC");
+        String sqlSearch="WORKTYPE='OSPR' and PARENT is null and wonum not in ('QC','RTG','MOB','FAC','IT')";
+        object.put("sqlSearch", sqlSearch);
         JSONObject searchobj = new JSONObject();//模糊查询
-        searchobj.put("CONTRACTNUM", edt_search.getText().toString());
+        searchobj.put("WONUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
-        object.put("sqlSearch", "LB='项目合同'");
         HashMap<String, String> headermap = new HashMap<>();
         headermap.put("Content-Type", "text/plan;charset=UTF-8");
         HashMap<String, String> map = new HashMap<>();
@@ -117,19 +121,19 @@ public class ProjectContractListActivity extends BaseListActivity {
                 LogUtils.d("onResponse==" + response);
                 ld.close();
                 finishRefresh();
-                final PurchseContractListBean purchseContractListBean = JSONObject.parseObject(response, new TypeReference<PurchseContractListBean>() {});
-                if (purchseContractListBean.getErrcode().equals("GLOBAL-S-0")) {
-                    int total=purchseContractListBean.getResult().getTotalresult();
-                    totalpage = purchseContractListBean.getResult().getTotalpage();
+                final WorkOrderListBean workOrderListBean = JSONObject.parseObject(response, new TypeReference<WorkOrderListBean>() {});
+                if (workOrderListBean.getErrcode().equals("GLOBAL-S-0")) {
+                    int total=workOrderListBean.getResult().getTotalresult();
+                    totalpage = workOrderListBean.getResult().getTotalpage();
                     if (total > 0) {
-                        List<PurchseContractListBean.ResultBean.ResultlistBean> list = purchseContractListBean.getResult().getResultlist();
+                        List<WorkOrderListBean.ResultBean.ResultlistBean> list = workOrderListBean.getResult().getResultlist();
                         LogUtils.d("222222 list.size()==" + list.size());
                         nodata.setVisibility(View.GONE);
                         if (currentPageNum == 1) {
                             if (adapter == null) {
-                                adapter = new CommonAdapter<PurchseContractListBean.ResultBean.ResultlistBean>(MyApplication.applicationContext, R.layout.equipment_list_item, list) {
+                                adapter = new CommonAdapter<WorkOrderListBean.ResultBean.ResultlistBean>(MyApplication.applicationContext, R.layout.equipment_list_item, list) {
                                     @Override
-                                    public void convert(CommonViewHolder holder, final PurchseContractListBean.ResultBean.ResultlistBean listBean) {
+                                    public void convert(CommonViewHolder holder, final WorkOrderListBean.ResultBean.ResultlistBean listBean) {
                                         CardView cardview = holder.getView(R.id.cardview);
                                         TextView tv_empty = holder.getView(R.id.tv_empty);
                                         TextView tv_no = holder.getView(R.id.tv_no);
@@ -140,16 +144,32 @@ public class ProjectContractListActivity extends BaseListActivity {
                                         TextView tv_desc = holder.getView(R.id.tv_desc);
                                         TextView tv_dute = holder.getView(R.id.tv_dute);
                                         TextView tv_date = holder.getView(R.id.tv_date);
-                                        SpannableString highlightNo = HighLightUtils.highlight(MyApplication.applicationContext, "合同编号：" + listBean.getCONTRACTNUM(), edt_search.getText().toString(), "#03DAC5", 0, 0);
+                                        SpannableString highlightNo = HighLightUtils.highlight(MyApplication.applicationContext, "申请单号：" + listBean.getWONUM(), edt_search.getText().toString(), "#03DAC5", 0, 0);
                                         tv_no.setText(highlightNo);
-                                        SpannableString highlight = HighLightUtils.highlight(MyApplication.applicationContext, "描述：" + listBean.getDESCRIPTION(), edt_search.getText().toString(), "#03DAC5", 0, 0);
+                                        SpannableString highlight = HighLightUtils.highlight(MyApplication.applicationContext, "项目名称：" + listBean.getDESCRIPTION(), edt_search.getText().toString(), "#03DAC5", 0, 0);
                                         tv_desc.setText(highlight);
                                         holder.setStatues(listBean.getSTATUS(),iv_contract_statue,tv_statue);
+                                        tv_type.setVisibility(View.GONE);
+//                                        switch (title){
+//                                            case "检查工单":
+//                                                tv_type.setVisibility(View.VISIBLE);
+//                                                tv_type .setText("检查人：" + listBean.getREPORTEDBYDESC());
+//                                                break;
+//                                            case "整改工单":
+//                                                tv_type.setVisibility(View.VISIBLE);
+//                                                tv_type .setText("整改原因：" + listBean.getUDREMARK());
+//                                                break;
+//                                            case "故障工单":
+//                                                tv_type.setVisibility(View.VISIBLE);
+//                                                tv_type .setText("停机时间：" + listBean.getUDTJTIME());
+//                                                break;
+////                                            case "检查工单":
+////                                                break;
+//                                        }
 
-                                        tv_type.setText("公司：" + listBean.getVENDOR());
-                                        tv_own_company.setText("供应商："+listBean.getVENDORDESC());
-                                        tv_dute.setText("创建人：" + listBean.getCREATEBYDESC());
-                                        tv_date.setText("创建时间：" + listBean.getCREATEDATE());
+                                        tv_own_company.setText("外协类型：" + listBean.getWXTYPE());
+                                        tv_dute.setText("申请人：" + listBean.getREPORTEDBYDESC());
+                                        tv_date.setText("创建日期：" + listBean.getREPORTDATE());
 
                                         holder.setTextSize(R.id.tv_empty);
                                         holder.setTextSize(R.id.tv_no);
@@ -163,7 +183,7 @@ public class ProjectContractListActivity extends BaseListActivity {
                                         holder.setOnClickListener(R.id.cardview, new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-//                                                startActivity(new Intent(ProjectContractListActivity.this,PurContractDetailActivity.class).putExtra("data",listBean).putExtra("title","采购合同详情"));
+//                                                startActivity(new Intent(PurchaseMonthPlanListActivity.this,PurchaseOrderDetailActivity.class).putExtra("data",listBean).putExtra("title","采购订单详情"));
                                             }
                                         });
                                     }
@@ -186,15 +206,13 @@ public class ProjectContractListActivity extends BaseListActivity {
                         }
                         if (adapter.getData().size() == 0) {
                             nodata.setVisibility(View.VISIBLE);
-
                         }
-
-                    } else {
+                    }
+                    else {
 //                            refreshLayout.setVisibility(View.GONE);
                         nodata.setVisibility(View.VISIBLE);
                     }
                 }
-
             }
         });
     }
@@ -217,7 +235,7 @@ public class ProjectContractListActivity extends BaseListActivity {
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getNotify(PostData postData) {
-        if (postData.getTag().equals("项目合同")) {
+        if (postData.getTag().equals(title)) {
             query();
         }
     }
@@ -227,4 +245,6 @@ public class ProjectContractListActivity extends BaseListActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+
 }

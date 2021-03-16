@@ -95,9 +95,7 @@ public class FixedassetPdListActivity extends BaseListActivity{
         JSONObject searchobj = new JSONObject();//模糊查询
         searchobj.put("FIXPDNUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
-//        object.put("sqlSearch", "LB='采购合同'  and nvl(UDCGHTLX,'1') <> '采购订单'");
         HashMap<String, String> headermap = new HashMap<>();
         headermap.put("Content-Type", "text/plan;charset=UTF-8");
         HashMap<String, String> map = new HashMap<>();

@@ -162,6 +162,26 @@ public class PurchseMonthPlanListBean {
             private String TOTALCOST;
             private String VENDOR;
 
+            public String getREQUESTDEP() {
+                return REQUESTDEP;
+            }
+
+            public void setREQUESTDEP(String REQUESTDEP) {
+                this.REQUESTDEP = REQUESTDEP;
+            }
+
+            String REQUESTDEP;
+
+            public String getDISPLAYNAME() {
+                return DISPLAYNAME;
+            }
+
+            public void setDISPLAYNAME(String DISPLAYNAME) {
+                this.DISPLAYNAME = DISPLAYNAME;
+            }
+
+            String DISPLAYNAME;
+
             public String getCHANGEDATE() {
                 return CHANGEDATE;
             }

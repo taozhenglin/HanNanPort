@@ -97,13 +97,12 @@ public class PurchaseContractListActivity extends BaseListActivity {
         object.put("appid", "PURCHVIEW");
         object.put("objectname", "PURCHVIEW");
         object.put("curpage", currentPageNum);
-        object.put("showcount", 20);
+        object.put("showcount", 10);
         object.put("option", "read");
         object.put("orderby", "STARTDATE DESC");
         JSONObject searchobj = new JSONObject();//模糊查询
         searchobj.put("CONTRACTNUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
 //        object.put("sqlSearch", "LB='采购合同'  and nvl(UDCGHTLX,'1') <> '采购订单'");
         HashMap<String, String> headermap = new HashMap<>();

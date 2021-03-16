@@ -1,75 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/wathet"
     android:orientation="vertical"
     >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/tv_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dp10"
+        android:text="下载新版本" />
+
     <TextView
         android:id="@+id/tv_purchase_contract"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="采购合同"/>
+        android:padding="@dimen/dp10"
+        android:text="采购合同" />
+
     <TextView
         android:id="@+id/tv_project_contract"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="项目合同"/>
+        android:padding="@dimen/dp10"
+        android:text="项目合同" />
+
     <TextView
         android:id="@+id/tv_stock_move"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="库存转移"/>
+        android:padding="@dimen/dp10"
+        android:text="库存转移" />
+
     <TextView
         android:id="@+id/tv_purchase_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="采购订单"/>
+        android:padding="@dimen/dp10"
+        android:text="非年度采购订单" />
+
     <TextView
-        android:id="@+id/tv_assert_ys"
+        android:id="@+id/tv_year_purchase_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="固定资产验收"/>
-    <TextView
-        android:id="@+id/tv_assert_pd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:padding="@dimen/dp10"
-        android:gravity="center"
-        android:text="固定资产盘点"/>
+        android:text="年度采购订单" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:background="@drawable/shape_radis_8_white"
+      >
+      <TextView
+          android:id="@+id/tv_purchase_request"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="采购申请" />
+      <TextView
+          android:id="@+id/tv_office_request"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="办公用品采购申请" />
+      <TextView
+          android:id="@+id/tv_assert_request"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="固定资产申购" />
+      <TextView
+          android:id="@+id/tv_item_request"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="物资采购申请" />
+  </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:translationZ="@dimen/dp5"
+       android:background="@drawable/shape_radis_30_gray"
+       >
+       <TextView
+           android:id="@+id/tv_assert_ys"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产验收" />
+       <TextView
+           android:id="@+id/tv_assert_js"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产接收" />
+
+       <TextView
+           android:id="@+id/tv_assert_pd"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产盘点" />
+       <TextView
+           android:id="@+id/tv_assert_tz"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产台账" />
+       <TextView
+           android:id="@+id/tv_assert_cz"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产处置" />
+       <TextView
+           android:id="@+id/tv_assert_fc"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产封存" />
+       <TextView
+           android:id="@+id/tv_assert_wj"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产出租及外借" />
+       <TextView
+           android:id="@+id/tv_assert_db"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="固定资产调拨" />
+
+
+   </LinearLayout>
+
     <TextView
         android:id="@+id/tv_stock_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="库存盘点"/>
+        android:padding="@dimen/dp10"
+        android:text="库存盘点" />
+
     <TextView
         android:id="@+id/tv_material_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:gravity="center"
-        android:text="领料申请"/>
-    <TextView
-        android:id="@+id/tv_pur_month_plan"
+        android:padding="@dimen/dp10"
+        android:text="领料申请" />
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
-        android:gravity="center"
-        android:text="采购月度计划"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_workorder_cm"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="故障工单" />
+
+        <TextView
+            android:id="@+id/tv_workorder_sr"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="状态维修工单" />
+
+        <TextView
+            android:id="@+id/tv_workorder_pm"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="预防性维护工单" />
+    </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      >
+
+      <TextView
+          android:id="@+id/tv_workorder_pj"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="项目工单" />
+
+      <TextView
+          android:id="@+id/tv_workorder_jc"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="检查工单" />
+
+      <TextView
+          android:id="@+id/tv_workorder_dxj"
+          android:layout_width="match_parent"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="@dimen/dp10"
+          android:text="点巡检工单" />
+  </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       <TextView
+           android:id="@+id/tv_workorder_zg"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="整改工单" />
+
+       <TextView
+           android:id="@+id/tv_workorder_em"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:padding="@dimen/dp10"
+           android:text="维修工单" />
 
 
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_workorder_ospr"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="外协服务申请单" />
+        <TextView
+            android:id="@+id/tv_wx_xbj"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="外协服务询比价单" />
 
+        <TextView
+            android:id="@+id/tv_wx_contract"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="外协服务年度采购合同" />
+
+        <TextView
+            android:id="@+id/tv_wx_order"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:text="外协服务年度采购订单" />
+    </LinearLayout>
 </LinearLayout>
+
+</ScrollView>

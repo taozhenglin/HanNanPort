@@ -89,11 +89,9 @@ public class FixedassetYsListActivity extends BaseListActivity {
         object.put("curpage", currentPageNum);
         object.put("showcount", 10);
         object.put("option", "read");
-//        object.put("orderby", "STARTDATE DESC");
         JSONObject searchobj = new JSONObject();//模糊查询
         searchobj.put("FIXEDASSETYSNUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
 //        object.put("sqlSearch", " 1 = 1 ");
         HashMap<String, String> headermap = new HashMap<>();

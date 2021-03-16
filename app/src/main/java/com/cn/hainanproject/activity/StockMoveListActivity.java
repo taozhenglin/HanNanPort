@@ -124,7 +124,6 @@ public class StockMoveListActivity extends BaseListActivity{
         object.put("orderby", "INVUSENUM desc");
         JSONObject sinorsearchobject = new JSONObject();//模糊查询要用到  均传用户输入内容
         sinorsearchobject.put("INVUSENUM", edt_search.getText().toString());
-//        sinorsearchobject.put("STATUS", edt_search.getText().toString());
         sinorsearchobject.put("DESCRIPTION", edt_search.getText().toString());
         object.put("sinorsearch", sinorsearchobject);
         HashMap<String, String> headermap = new HashMap<>();
@@ -191,7 +190,7 @@ public class StockMoveListActivity extends BaseListActivity{
                                         holder.setOnClickListener(R.id.cardview, new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-//                                                startActivity(new Intent(DxjWorkerOrderListActivity.this,QuickReportDetailActivity.class).putExtra("data",listBean).putExtra("title","点巡检工单详情"));
+                                                startActivity(new Intent(StockMoveListActivity.this,StockMoveDetailActivity.class).putExtra("data",listBean).putExtra("title","库存转移工单详情"));
                                             }
                                         });
                                     }

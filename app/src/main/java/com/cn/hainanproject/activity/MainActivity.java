@@ -13,6 +13,7 @@ import com.cn.hainanproject.R;
 import com.cn.hainanproject.fragment.FunctionFragment;
 import com.cn.hainanproject.fragment.PersonalFragment;
 import com.cn.hainanproject.fragment.WorkFragment;
+import com.cn.hainanproject.model.PostData;
 import com.cn.hainanproject.utils.LogUtils;
 import com.cn.hainanproject.utils.SharedPreferencesUtil;
 import com.cn.hainanproject.utils.StatusBarUtils;
@@ -31,6 +32,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,16 +81,16 @@ public class MainActivity extends AppCompatActivity {
         WorkFragment functionFragment2 = new WorkFragment(this);
         PersonalFragment functionFragment3 = new PersonalFragment(this);
         navigation = findViewById(R.id.nav_view);
-        displayItemNum(navigation, 1, SharedPreferencesUtil.getInt(this,"waitdocount"));
+//        displayItemNum(navigation, 1, SharedPreferencesUtil.getInt(this, "waitdocount"));
         lists.add(functionFragment1);
         lists.add(functionFragment2);
         lists.add(functionFragment3);
         mAdapter = new MyFragnentPagerAdapter(getSupportFragmentManager(), lists);
         viewpager.setAdapter(mAdapter);
         viewpager.addOnPageChangeListener(mPageChangeListener);
-        viewpager.setPageTransformer(false,new MyPagerTransition());
+        viewpager.setPageTransformer(false, new MyPagerTransition());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        EventBus.getDefault().register(this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -154,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             list = lists;
 
         }
+
         @NonNull
         @Override
         public Fragment getItem(int position) {
@@ -202,4 +208,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refresh(PostData postData) {
+        if (postData.getTag().equals("refresh waitdo")) {
+            LogUtils.d("222222 refresh waitdo");
+            displayItemNum(navigation, 1, SharedPreferencesUtil.getInt(this, "waitdocount"));
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

@@ -143,6 +143,24 @@ public class StockCheckListBean {
             private String LOCATION;
             private String STOCKNUM;
 
+            public void setSITEID(String SITEID) {
+                this.SITEID = SITEID;
+            }
+
+            String SITEID;
+
+            public void setUDSUMCOST(String UDSUMCOST) {
+                this.UDSUMCOST = UDSUMCOST;
+            }
+
+            String UDSUMCOST;
+
+            public void setSTATUS(String STATUS) {
+                this.STATUS = STATUS;
+            }
+
+            String STATUS;
+
             public String getCREATEBY() {
                 return CREATEBY;
             }
@@ -181,6 +199,19 @@ public class StockCheckListBean {
 
             public void setSTOCKNUM(String STOCKNUM) {
                 this.STOCKNUM = STOCKNUM;
+            }
+
+            public String getSTATUS() {
+                return STATUS;
+            }
+
+            public String getUDSUMCOST() {
+                return  UDSUMCOST;
+            }
+
+            public String getSITEID() {
+                return  SITEID;
+
             }
         }
     }

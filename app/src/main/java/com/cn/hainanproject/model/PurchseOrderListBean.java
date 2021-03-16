@@ -157,6 +157,130 @@ public class PurchseOrderListBean {
             private String VENDOR;
             private String VENDORDESC;
 
+            public void setPRICELEVEL(String PRICELEVEL) {
+                this.PRICELEVEL = PRICELEVEL;
+            }
+
+            String PRICELEVEL;
+
+            public String getUDCREATEDATE() {
+                return UDCREATEDATE;
+            }
+
+            public void setUDCREATEDATE(String UDCREATEDATE) {
+                this.UDCREATEDATE = UDCREATEDATE;
+            }
+
+            String UDCREATEDATE;
+
+            public void setDISPLAYNAME(String DISPLAYNAME) {
+                this.DISPLAYNAME = DISPLAYNAME;
+            }
+
+            String DISPLAYNAME;
+
+            public String getUDPAYMENTTERMS() {
+                return UDPAYMENTTERMS;
+            }
+
+            public void setUDPAYMENTTERMS(String UDPAYMENTTERMS) {
+                this.UDPAYMENTTERMS = UDPAYMENTTERMS;
+            }
+
+            String UDPAYMENTTERMS;
+
+
+            public String getTRANSPORT() {
+                return TRANSPORT;
+            }
+
+            public void setTRANSPORT(String TRANSPORT) {
+                this.TRANSPORT = TRANSPORT;
+            }
+
+            String TRANSPORT;
+
+            public String getUDTAX() {
+                return UDTAX;
+            }
+
+            public void setUDTAX(String UDTAX) {
+                this.UDTAX = UDTAX;
+            }
+
+            String UDTAX;
+
+            public String getTOTALTAX1() {
+                return TOTALTAX1;
+            }
+
+            public void setTOTALTAX1(String TOTALTAX1) {
+                this.TOTALTAX1 = TOTALTAX1;
+            }
+
+            String TOTALTAX1;
+
+            public String getPRETAXTOTAL() {
+                return PRETAXTOTAL;
+            }
+
+            public void setPRETAXTOTAL(String PRETAXTOTAL) {
+                this.PRETAXTOTAL = PRETAXTOTAL;
+            }
+
+            String PRETAXTOTAL;
+
+            public String getUDHSZJ() {
+                return UDHSZJ;
+            }
+
+            public void setUDHSZJ(String UDHSZJ) {
+                this.UDHSZJ = UDHSZJ;
+            }
+
+            String UDHSZJ;
+
+
+            public String getUDJHRQ() {
+                return UDJHRQ;
+            }
+
+            public void setUDJHRQ(String UDJHRQ) {
+                this.UDJHRQ = UDJHRQ;
+            }
+
+            String UDJHRQ;
+
+            public String getCURRENCYCODE() {
+                return CURRENCYCODE;
+            }
+
+            public void setCURRENCYCODE(String CURRENCYCODE) {
+                this.CURRENCYCODE = CURRENCYCODE;
+            }
+
+            String CURRENCYCODE;
+
+            public String getSTATUSDATE() {
+                return STATUSDATE;
+            }
+
+            public void setSTATUSDATE(String STATUSDATE) {
+                this.STATUSDATE = STATUSDATE;
+            }
+
+            String STATUSDATE;
+
+            public void setUDMS(String UDMS) {
+                this.UDMS = UDMS;
+            }
+
+            public String getUDMS() {
+                return UDMS;
+            }
+
+            String UDMS;
+
             public String getDESCRIPTION() {
                 return DESCRIPTION;
             }
@@ -251,6 +375,15 @@ public class PurchseOrderListBean {
 
             public void setVENDORDESC(String VENDORDESC) {
                 this.VENDORDESC = VENDORDESC;
+            }
+
+
+            public String getDISPLAYNAME() {
+                return DISPLAYNAME;
+            }
+
+            public String getPRICELEVEL() {
+                return PRICELEVEL;
             }
         }
     }

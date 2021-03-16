@@ -110,7 +110,6 @@ public class StockCheckListActivity extends BaseListActivity {
         object.put("orderby", "STOCKNUM desc");
         JSONObject sinorsearchobject = new JSONObject();//模糊查询要用到  均传用户输入内容
         sinorsearchobject.put("STOCKNUM", edt_search.getText().toString());
-//        sinorsearchobject.put("STATUS", edt_search.getText().toString());
         sinorsearchobject.put("DESCRIPTION", edt_search.getText().toString());
         object.put("sinorsearch", sinorsearchobject);
         HashMap<String, String> headermap = new HashMap<>();
@@ -157,7 +156,7 @@ public class StockCheckListActivity extends BaseListActivity {
                                         tv_no.setText(highlightNo);
                                         SpannableString highlight = HighLightUtils.highlight(MyApplication.applicationContext, "描述：" + listBean.getDESCRIPTION(), edt_search.getText().toString(), "#03DAC5", 0, 0);
                                         tv_desc.setText(highlight);
-//                                        holder.setStatues(listBean.getSTATUS(),iv_contract_statue,tv_statue);
+                                        holder.setStatues(listBean.getSTATUS(),iv_contract_statue,tv_statue);
 
                                         tv_type.setText("原库房：" + listBean.getLOCATION());
                                         tv_own_company.setVisibility(View.GONE);

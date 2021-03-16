@@ -19,7 +19,6 @@ import com.cn.hainanproject.base.Constants;
 import com.cn.hainanproject.base.MyApplication;
 import com.cn.hainanproject.model.PostData;
 import com.cn.hainanproject.model.PurchseMonthPlanListBean;
-import com.cn.hainanproject.model.PurchseOrderListBean;
 import com.cn.hainanproject.net.CallBackUtil;
 import com.cn.hainanproject.net.OkhttpUtil;
 import com.cn.hainanproject.utils.HighLightUtils;
@@ -51,10 +50,15 @@ public class PurchaseMonthPlanListActivity extends BaseListActivity {
     private int totalpage;
     private LoadingDialog ld;
     private CommonAdapter<PurchseMonthPlanListBean.ResultBean.ResultlistBean> adapter;
+    private String title;
+    String sql;
+
     @Override
     public void initView() {
-        tv_common_title.setText("采购月度计划");
-        edt_search.setHint("计划编号/描述");
+        title=getIntent().getStringExtra("title");
+         sql = getIntent().getStringExtra("sql");
+        tv_common_title.setText(title);
+        edt_search.setHint("申请编号/描述");
     }
 
     public void initEvent() {
@@ -92,12 +96,13 @@ public class PurchaseMonthPlanListActivity extends BaseListActivity {
         object.put("curpage", currentPageNum);
         object.put("showcount", 10);
         object.put("option", "read");
-//        object.put("orderby", "STARTDATE DESC");
+//        object.put("orderby", "ISSUEDATE DESC");
         JSONObject searchobj = new JSONObject();//模糊查询
         searchobj.put("PRNUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
 //        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
+        object.put("sqlSearch", sql);
 //        object.put("sqlSearch", "LB='采购合同'  and nvl(UDCGHTLX,'1') <> '采购订单'");
         HashMap<String, String> headermap = new HashMap<>();
         headermap.put("Content-Type", "text/plan;charset=UTF-8");
@@ -145,8 +150,8 @@ public class PurchaseMonthPlanListActivity extends BaseListActivity {
                                         tv_desc.setText(highlight);
                                         holder.setStatues(listBean.getSTATUS(),iv_contract_statue,tv_statue);
                                         tv_type.setText("总金额：" + listBean.getTOTALCOST());
-                                        tv_own_company.setText("公司：" + listBean.getVENDOR());
-                                        tv_dute.setText("创建人：" + listBean.getREQUESTEDBY());
+                                        tv_own_company.setText("申请部门：" + listBean.getREQUESTDEP());
+                                        tv_dute.setText("创建人：" + listBean.getDISPLAYNAME());
                                         tv_date.setText("创建时间：" + listBean.getISSUEDATE());
 
                                         holder.setTextSize(R.id.tv_empty);

@@ -50,8 +50,13 @@ public class PurchaseOrderListActivity extends BaseListActivity {
     private int totalpage;
     private LoadingDialog ld;
     private CommonAdapter<PurchseOrderListBean.ResultBean.ResultlistBean> adapter;
+    private String type;
+    String title;
+
     @Override
     public void initView() {
+         title = getIntent().getStringExtra("title");
+        type=getIntent().getStringExtra("type");
         tv_common_title.setText("采购订单");
         edt_search.setHint("采购编号/描述");
     }
@@ -92,10 +97,11 @@ public class PurchaseOrderListActivity extends BaseListActivity {
         object.put("showcount", 20);
         object.put("option", "read");
         object.put("orderby", "STARTDATE DESC");
+        String sqlSearch="UDAPPTYPE = "+"'"+type+"'";
+        object.put("sqlSearch", sqlSearch);
         JSONObject searchobj = new JSONObject();//模糊查询
         searchobj.put("PONUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
 //        object.put("sqlSearch", "LB='采购合同'  and nvl(UDCGHTLX,'1') <> '采购订单'");
         HashMap<String, String> headermap = new HashMap<>();
@@ -146,7 +152,7 @@ public class PurchaseOrderListActivity extends BaseListActivity {
 
                                         tv_type.setText("总成本：" + listBean.getTOTALCOST());
                                         tv_own_company.setVisibility(View.GONE);
-                                        tv_dute.setText("供应商：" + listBean.getVENDOR());
+                                        tv_dute.setText("供应商：" + listBean.getVENDORDESC());
                                         tv_date.setText("采购日期：" + listBean.getORDERDATE());
 
                                         holder.setTextSize(R.id.tv_empty);

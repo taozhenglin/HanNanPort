@@ -1,13 +1,11 @@
 package com.cn.hainanproject.activity;
 
-import android.content.Intent;
 import android.text.SpannableString;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +17,8 @@ import com.cn.hainanproject.base.CommonViewHolder;
 import com.cn.hainanproject.base.Constants;
 import com.cn.hainanproject.base.MyApplication;
 import com.cn.hainanproject.model.PostData;
-import com.cn.hainanproject.model.PurchseContractListBean;
+import com.cn.hainanproject.model.WxServerContractListBean;
+import com.cn.hainanproject.model.WxServerPurChaseOrderListBean;
 import com.cn.hainanproject.net.CallBackUtil;
 import com.cn.hainanproject.net.OkhttpUtil;
 import com.cn.hainanproject.utils.HighLightUtils;
@@ -40,9 +39,9 @@ import okhttp3.Call;
 
 /**
  * Created by tzl
- * on 2021/2/8
+ * on 2021/3/16
  */
-public class ProjectContractListActivity extends BaseListActivity {
+public class WxServerPurchaseOrderListActivity extends BaseListActivity{
     private int currentPageNum = 1;
 
     //    private EditText edt_search_contract;
@@ -50,13 +49,21 @@ public class ProjectContractListActivity extends BaseListActivity {
     private TextView tv_search;
     private int totalpage;
     private LoadingDialog ld;
-    private CommonAdapter<PurchseContractListBean.ResultBean.ResultlistBean> adapter;
+    private CommonAdapter<WxServerPurChaseOrderListBean.ResultBean.ResultlistBean> adapter;
+    private String title;
+    private String type;
+
+
 
     @Override
     public void initView() {
-        tv_common_title.setText("项目合同");
-        edt_search.setHint("合同编号/描述");
+//        title=getIntent().getStringExtra("外协服务询比价单");
+//        type=getIntent().getStringExtra("type");
+        tv_common_title.setText("外协服务采购订单");
+
     }
+
+
 
     public void initEvent() {
         ld = new LoadingDialog(this);
@@ -83,23 +90,21 @@ public class ProjectContractListActivity extends BaseListActivity {
 
     }
     private void query() {
-
         LogUtils.d("query");
         ld.show();
         String url = Constants.COMMONURL;
         JSONObject object = new JSONObject();
-        object.put("appid", "PURCHVIEW");
-        object.put("objectname", "PURCHVIEW");
+        object.put("appid", "PO");
+        object.put("objectname", "PO");
         object.put("curpage", currentPageNum);
         object.put("showcount", 10);
         object.put("option", "read");
-        object.put("orderby", "STARTDATE DESC");
+        String sqlSearch="udapptype='OSPO'";
+        object.put("sqlSearch", sqlSearch);
         JSONObject searchobj = new JSONObject();//模糊查询
-        searchobj.put("CONTRACTNUM", edt_search.getText().toString());
+        searchobj.put("PONUM", edt_search.getText().toString());
         searchobj.put("DESCRIPTION", edt_search.getText().toString());
-//        searchobj.put("HTYF", edt_search_contract.getText().toString());
         object.put("sinorsearch", searchobj);
-        object.put("sqlSearch", "LB='项目合同'");
         HashMap<String, String> headermap = new HashMap<>();
         headermap.put("Content-Type", "text/plan;charset=UTF-8");
         HashMap<String, String> map = new HashMap<>();
@@ -117,19 +122,19 @@ public class ProjectContractListActivity extends BaseListActivity {
                 LogUtils.d("onResponse==" + response);
                 ld.close();
                 finishRefresh();
-                final PurchseContractListBean purchseContractListBean = JSONObject.parseObject(response, new TypeReference<PurchseContractListBean>() {});
-                if (purchseContractListBean.getErrcode().equals("GLOBAL-S-0")) {
-                    int total=purchseContractListBean.getResult().getTotalresult();
-                    totalpage = purchseContractListBean.getResult().getTotalpage();
+                final WxServerPurChaseOrderListBean wxServerContractListBean = JSONObject.parseObject(response, new TypeReference<WxServerPurChaseOrderListBean>() {});
+                if (wxServerContractListBean.getErrcode().equals("GLOBAL-S-0")) {
+                    int total=wxServerContractListBean.getResult().getTotalresult();
+                    totalpage = wxServerContractListBean.getResult().getTotalpage();
                     if (total > 0) {
-                        List<PurchseContractListBean.ResultBean.ResultlistBean> list = purchseContractListBean.getResult().getResultlist();
+                        List<WxServerPurChaseOrderListBean.ResultBean.ResultlistBean> list = wxServerContractListBean.getResult().getResultlist();
                         LogUtils.d("222222 list.size()==" + list.size());
                         nodata.setVisibility(View.GONE);
                         if (currentPageNum == 1) {
                             if (adapter == null) {
-                                adapter = new CommonAdapter<PurchseContractListBean.ResultBean.ResultlistBean>(MyApplication.applicationContext, R.layout.equipment_list_item, list) {
+                                adapter = new CommonAdapter<WxServerPurChaseOrderListBean.ResultBean.ResultlistBean>(MyApplication.applicationContext, R.layout.equipment_list_item, list) {
                                     @Override
-                                    public void convert(CommonViewHolder holder, final PurchseContractListBean.ResultBean.ResultlistBean listBean) {
+                                    public void convert(CommonViewHolder holder, final WxServerPurChaseOrderListBean.ResultBean.ResultlistBean listBean) {
                                         CardView cardview = holder.getView(R.id.cardview);
                                         TextView tv_empty = holder.getView(R.id.tv_empty);
                                         TextView tv_no = holder.getView(R.id.tv_no);
@@ -140,17 +145,19 @@ public class ProjectContractListActivity extends BaseListActivity {
                                         TextView tv_desc = holder.getView(R.id.tv_desc);
                                         TextView tv_dute = holder.getView(R.id.tv_dute);
                                         TextView tv_date = holder.getView(R.id.tv_date);
-                                        SpannableString highlightNo = HighLightUtils.highlight(MyApplication.applicationContext, "合同编号：" + listBean.getCONTRACTNUM(), edt_search.getText().toString(), "#03DAC5", 0, 0);
+                                        TextView tv_add = holder.getView(R.id.tv_add);
+                                        tv_add.setVisibility(View.VISIBLE);
+                                        SpannableString highlightNo = HighLightUtils.highlight(MyApplication.applicationContext, "订单号：" + listBean.getPONUM(), edt_search.getText().toString(), "#03DAC5", 0, 0);
                                         tv_no.setText(highlightNo);
                                         SpannableString highlight = HighLightUtils.highlight(MyApplication.applicationContext, "描述：" + listBean.getDESCRIPTION(), edt_search.getText().toString(), "#03DAC5", 0, 0);
                                         tv_desc.setText(highlight);
                                         holder.setStatues(listBean.getSTATUS(),iv_contract_statue,tv_statue);
-
-                                        tv_type.setText("公司：" + listBean.getVENDOR());
-                                        tv_own_company.setText("供应商："+listBean.getVENDORDESC());
-                                        tv_dute.setText("创建人：" + listBean.getCREATEBYDESC());
-                                        tv_date.setText("创建时间：" + listBean.getCREATEDATE());
-
+                                        tv_type.setText("供应商：" + listBean.getVENDORDESC());
+                                        tv_own_company.setText("总金额：" + listBean.getTOTALCOST());
+//                                        tv_add.setText("付款单号：" + listBean.getUDIVNUM());
+                                        tv_dute.setText("创建人：" + listBean.getSHIPTOATTN());
+                                        tv_date.setText("订购日期：" + listBean.getORDERDATE());
+tv_add.setText("接收情况："+listBean.getRECEIPTS());
                                         holder.setTextSize(R.id.tv_empty);
                                         holder.setTextSize(R.id.tv_no);
                                         holder.setTextSize(R.id.tv_statue);
@@ -163,7 +170,7 @@ public class ProjectContractListActivity extends BaseListActivity {
                                         holder.setOnClickListener(R.id.cardview, new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-//                                                startActivity(new Intent(ProjectContractListActivity.this,PurContractDetailActivity.class).putExtra("data",listBean).putExtra("title","采购合同详情"));
+//                                                startActivity(new Intent(PurchaseMonthPlanListActivity.this,PurchaseOrderDetailActivity.class).putExtra("data",listBean).putExtra("title","采购订单详情"));
                                             }
                                         });
                                     }
@@ -186,15 +193,13 @@ public class ProjectContractListActivity extends BaseListActivity {
                         }
                         if (adapter.getData().size() == 0) {
                             nodata.setVisibility(View.VISIBLE);
-
                         }
-
-                    } else {
+                    }
+                    else {
 //                            refreshLayout.setVisibility(View.GONE);
                         nodata.setVisibility(View.VISIBLE);
                     }
                 }
-
             }
         });
     }
@@ -217,7 +222,7 @@ public class ProjectContractListActivity extends BaseListActivity {
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getNotify(PostData postData) {
-        if (postData.getTag().equals("项目合同")) {
+        if (postData.getTag().equals("外协服务采购订单")) {
             query();
         }
     }
