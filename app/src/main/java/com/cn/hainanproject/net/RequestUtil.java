@@ -63,9 +63,9 @@ public class RequestUtil {
 
     private final static HashMap<String, List<Cookie>> cookieStore = new HashMap<>();//cookie
 
-    private int mConnectTimeout =5;//连接超时时间 单位s
+    private int mConnectTimeout =10;//连接超时时间 单位s
 
-    private int mReadTimeout = 5;//读取超时  单位s
+    private int mReadTimeout = 10;//读取超时  单位s
 
 
     RequestUtil(String methodType, String url, Map<String, String> paramsMap, Map<String, String> headerMap, CallBackUtil callBack) {
@@ -236,13 +236,15 @@ public class RequestUtil {
          */
 
         if (!TextUtils.isEmpty(mJsonStr)) {
-
-            MediaType JSON = MediaType.parse("application/json; charset=utf-8");//数据类型为json格式，
+            MediaType JSON;
+            if (mHeaderMap.containsKey("Content-Type")) {
+                JSON = MediaType.parse(mHeaderMap.get("Content-Type"));
+            } else
+                JSON = MediaType.parse("application/json; charset=utf-8");//数据类型为json格式，
 
             return RequestBody.create(JSON, mJsonStr);//json数据，
 
         }
-
 
         /**
          * post,put,delete都需要body，但也都有body等于空的情况，此时也应该有body对象，但body中的内容为空

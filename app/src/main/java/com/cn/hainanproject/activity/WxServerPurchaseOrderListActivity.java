@@ -157,7 +157,7 @@ public class WxServerPurchaseOrderListActivity extends BaseListActivity{
 //                                        tv_add.setText("付款单号：" + listBean.getUDIVNUM());
                                         tv_dute.setText("创建人：" + listBean.getSHIPTOATTN());
                                         tv_date.setText("订购日期：" + listBean.getORDERDATE());
-tv_add.setText("接收情况："+listBean.getRECEIPTS());
+                                        tv_add.setText("接收情况："+listBean.getRECEIPTS());
                                         holder.setTextSize(R.id.tv_empty);
                                         holder.setTextSize(R.id.tv_no);
                                         holder.setTextSize(R.id.tv_statue);

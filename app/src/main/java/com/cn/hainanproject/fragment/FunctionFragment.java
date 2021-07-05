@@ -26,6 +26,7 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.cn.hainanproject.R;
+import com.cn.hainanproject.activity.EqmManageListActivity;
 import com.cn.hainanproject.activity.FixedassetCzListActivity;
 import com.cn.hainanproject.activity.FixedassetDbListActivity;
 import com.cn.hainanproject.activity.FixedassetFcListActivity;
@@ -35,6 +36,7 @@ import com.cn.hainanproject.activity.FixedassetTzListActivity;
 import com.cn.hainanproject.activity.FixedassetWjListActivity;
 import com.cn.hainanproject.activity.FixedassetYsListActivity;
 import com.cn.hainanproject.activity.GzWorkOrderListActivity;
+import com.cn.hainanproject.activity.ItServerListActivity;
 import com.cn.hainanproject.activity.MaterialRequestListActivity;
 import com.cn.hainanproject.activity.ProjectContractListActivity;
 import com.cn.hainanproject.activity.PurchaseContractListActivity;
@@ -42,15 +44,14 @@ import com.cn.hainanproject.activity.PurchaseMonthPlanListActivity;
 import com.cn.hainanproject.activity.PurchaseOrderListActivity;
 import com.cn.hainanproject.activity.StockCheckListActivity;
 import com.cn.hainanproject.activity.StockMoveListActivity;
+import com.cn.hainanproject.activity.VendorServerListActivity;
+import com.cn.hainanproject.activity.WxPayListActivity;
 import com.cn.hainanproject.activity.WxServerContractListActivity;
 import com.cn.hainanproject.activity.WxServerListActivity;
 import com.cn.hainanproject.activity.WxServerPurchaseOrderListActivity;
 import com.cn.hainanproject.activity.WxServerXbjListActivity;
-import com.cn.hainanproject.net.CallBackUtil;
-import com.cn.hainanproject.net.OkhttpUtil;
 import com.cn.hainanproject.utils.DownloadUtil;
 import com.cn.hainanproject.utils.LogUtils;
-import com.cn.hainanproject.utils.OpenFileUtils;
 import com.cn.hainanproject.utils.SharedPreferencesUtil;
 
 import java.io.File;
@@ -58,7 +59,6 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Call;
 
 
 /**
@@ -132,6 +132,18 @@ public class FunctionFragment extends Fragment {
     TextView tvWxContract;
     @BindView(R.id.tv_wx_order)
     TextView tvWxOrder;
+    @BindView(R.id.tv_wx_pay)
+    TextView tvWxPay;
+    @BindView(R.id.tv_vonder_server)
+    TextView tvVendorServer;
+    @BindView(R.id.tv_it_server)
+    TextView tvItServer;
+    @BindView(R.id.tv_mangement_resource)
+    TextView tvManResource;
+    @BindView(R.id.tv_mangement_eqm)
+    TextView tvManEqm;
+    @BindView(R.id.tv_mangement_fault)
+    TextView tvManFault;
     File file;
 
     public FunctionFragment(Context context) {
@@ -160,7 +172,8 @@ public class FunctionFragment extends Fragment {
             R.id.tv_assert_ys, R.id.tv_assert_js, R.id.tv_assert_pd, R.id.tv_assert_tz, R.id.tv_assert_cz, R.id.tv_assert_fc,
             R.id.tv_assert_wj, R.id.tv_assert_db, R.id.tv_stock_check, R.id.tv_material_request, R.id.tv_workorder_cm,
             R.id.tv_workorder_sr, R.id.tv_workorder_pm, R.id.tv_workorder_pj, R.id.tv_workorder_jc, R.id.tv_workorder_dxj,
-            R.id.tv_workorder_zg, R.id.tv_workorder_em, R.id.tv_workorder_ospr,R.id.tv_wx_order,R.id.tv_wx_contract,R.id.tv_wx_xbj})
+            R.id.tv_workorder_zg, R.id.tv_workorder_em, R.id.tv_workorder_ospr,R.id.tv_wx_order,R.id.tv_wx_contract,R.id.tv_wx_xbj,
+            R.id.tv_wx_pay,R.id.tv_vonder_server,R.id.tv_it_server,R.id.tv_mangement_eqm,R.id.tv_mangement_fault,R.id.tv_mangement_resource})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_download://采购合同
@@ -265,6 +278,24 @@ public class FunctionFragment extends Fragment {
                 break;
             case R.id.tv_wx_order://外协服务采购订单
                 mContext.startActivity(new Intent(mContext, WxServerPurchaseOrderListActivity.class));
+                break;
+            case R.id.tv_wx_pay://外协服务付款申请
+                mContext.startActivity(new Intent(mContext, WxPayListActivity.class));
+                break;
+            case R.id.tv_vonder_server://供应商月度服务考评
+                mContext.startActivity(new Intent(mContext, VendorServerListActivity.class));
+                break;
+            case R.id.tv_it_server://IT服务维修申请
+                mContext.startActivity(new Intent(mContext, ItServerListActivity.class));
+                break;
+            case R.id.tv_mangement_eqm://设备管理
+                mContext.startActivity(new Intent(mContext, EqmManageListActivity.class));
+                break;
+            case R.id.tv_mangement_fault://故障管理
+                mContext.startActivity(new Intent(mContext, ItServerListActivity.class));
+                break;
+            case R.id.tv_mangement_resource://能耗管理
+                mContext.startActivity(new Intent(mContext, ItServerListActivity.class));
                 break;
         }
     }

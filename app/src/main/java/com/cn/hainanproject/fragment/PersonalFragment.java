@@ -18,7 +18,10 @@ import androidx.fragment.app.Fragment;
 import com.blankj.utilcode.util.AppUtils;
 
 import com.cn.hainanproject.R;
+import com.cn.hainanproject.activity.DrawLayoutActivity;
 import com.cn.hainanproject.activity.LoginActivity;
+import com.cn.hainanproject.activity.ScanCodeActivity;
+import com.cn.hainanproject.activity.ScanResultActivity;
 import com.cn.hainanproject.base.Constants;
 import com.cn.hainanproject.model.PostData;
 import com.cn.hainanproject.utils.SharedPreferencesUtil;
@@ -135,8 +138,10 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
 //                startActivity(intent);
                 break;
             case R.id.tv_login_out:
-                mContext.startActivity(new Intent(mContext, LoginActivity.class));
-                getActivity().finish();
+//                mContext.startActivity(new Intent(mContext, DrawLayoutActivity.class));
+                startActivity(new Intent(mContext, ScanCodeActivity.class));
+
+//                getActivity().finish();
                 break;
         }
     }

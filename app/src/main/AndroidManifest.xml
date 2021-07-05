@@ -48,6 +48,10 @@
     <!-- 用户手机设置中允许未知来源安装包安装状态为关；-->
     <!-- Android8.0 以后，如果要安装 apk 需要额外添加权限：-->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!--如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明-->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
     <application
         android:name=".base.MyApplication"
         android:allowBackup="true"
@@ -60,6 +64,10 @@
         tools:ignore="MissingClass"
 
         tools:replace="android:icon">
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="fe33036a134bf4c9337f247edd9fcf69"/>
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
@@ -164,6 +172,21 @@
         <activity android:name=".activity.WxServerPurchaseOrderListActivity"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             />
+<!--        外协服务付款申请-->
+        <activity android:name=".activity.WxPayListActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            />
+<!--   供应商服务     -->
+        <activity android:name=".activity.VendorServerListActivity"/>
+
+        <!--        it服务列表-->
+        <activity android:name=".activity.ItServerListActivity"/>
+<!--        设备管理列表-->
+        <activity android:name=".activity.EqmManageListActivity"/>
+        <activity android:name=".activity.DrawLayoutActivity"/>
+        <activity android:name=".activity.ScanCodeActivity"/>
+        <activity android:name=".activity.ScanResultActivity"/>
+        <activity android:name=".activity.CreateCheckOrderActivity"/>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.cn.hainanproject.fileProvider"
@@ -173,6 +196,34 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+<!--        //图片选择Activity-->
+        <activity android:name="com.donkingliang.imageselector.ImageSelectorActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+<!--        //图片预览Activity-->
+        <activity android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+<!--        //图片剪切Activity-->
+        <activity
+            android:name="com.donkingliang.imageselector.ClipImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+<!--        地图显示-->
+        <activity android:name=".activity.MapViewActivity"/>
+
+        <!-- Android 7.0 文件共享配置，1.7.0之前必须配置，1.7.0后不需要 -->
+<!--        <provider-->
+<!--            android:name="android.support.v4.content.FileProvider"-->
+<!--            android:authorities="${applicationId}.fileprovider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/file_paths" />-->
+<!--        </provider>-->
     </application>
 
 

@@ -1,3 +1,4 @@
+include ':library'
 include ':refresh-header-material'
 include ':refresh-footer-classics'
 include ':refresh-header-falsify'

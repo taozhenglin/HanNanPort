@@ -269,77 +269,94 @@ public class WorkFragment extends Fragment implements View.OnClickListener {
                                                 TextView  tv_type = holder.getView(R.id.tv_type);
 //                                                CheckBox checkbox = holder.getView(R.id.checkbox);
                                                 switch (listBean.getPROCESSNAME()) {
-                                                    case "PO":
-                                                       tv_title.setText("采购订单");
-                                                        break;
-                                                    case "RFQ":
-                                                       tv_title.setText("采购询价单");
-                                                        break;
-                                                    case "PURCHVIEW":
-                                                       tv_title.setText("采购合同");
-                                                        break;
-                                                    case "PRSUM":
-                                                       tv_title.setText("采购计划月度汇总");
-                                                        break;
-                                                    case "PR":
-                                                       tv_title.setText("采购月度计划");
-                                                        break;
-                                                    case "GPDTZ":
-                                                       tv_title.setText("供配电设备台账增减申请");
-                                                        break;
-                                                    case "VENAPPLY":
-                                                       tv_title.setText("供应商申请");
-                                                        break;
-                                                    case "JLTZ":
-                                                       tv_title.setText("计量设备台账增减申请");
-                                                        break;
-                                                    case "WORKORDER":
-                                                       tv_title.setText("领料申请单");
-                                                        break;
-                                                    case "SBTZ":
-                                                       tv_title.setText("设备台账增减申请");
-                                                        break;
-                                                    case "SSTZ":
-                                                       tv_title.setText("设施台账增减申请");
-                                                        break;
-                                                    case "WZBMSQ":
-                                                       tv_title.setText("物资编码申请");
-                                                        break;
-                                                    case "XMHT":
-                                                       tv_title.setText("项目合同");
-                                                        break;
-                                                    case "UDXMHTBG":
-                                                       tv_title.setText("项目合同变更");
-                                                        break;
-                                                    case "PRPROJ":
-                                                       tv_title.setText("项目立项/项目月度计划");
-                                                        break;
-                                                    case "XBJ":
-                                                       tv_title.setText("项目询价单");
-                                                        break;
-                                                    case "PROJSUM":
-                                                       tv_title.setText("项目月度计划汇总");
-                                                        break;
-                                                    case "XXHTZ":
-                                                       tv_title.setText("信息化台账增减申请");
-                                                        break;
-                                                    case "CONTRACTPO":
-                                                       tv_title.setText("采购订单");
-                                                        break;
-                                                    case "INVUSE":
-                                                       tv_title.setText("库存转移");
-                                                        break;
-                                                    case "FIXEDYS":
-                                                       tv_title.setText("固定资产验收");
-                                                        break;
-                                                    case "FIXEDASJS":
-                                                       tv_title.setText("固定资产接收");
-                                                        break;
-                                                    case "UDFIXBF":
-                                                       tv_title.setText("固定资产处置");
-                                                        break;
+//                                                    case "PO":
+//                                                       tv_title.setText("采购订单");
+//                                                        break;
+//                                                    case "RFQ":
+//                                                       tv_title.setText("采购询价单");
+//                                                        break;
+//                                                    case "PURCHVIEW":
+//                                                       tv_title.setText("采购合同");
+//                                                        break;
+//                                                    case "PRSUM":
+//                                                       tv_title.setText("采购计划月度汇总");
+//                                                        break;
+//                                                    case "PR":
+//                                                       tv_title.setText("采购月度计划");
+//                                                        break;
+//                                                    case "GPDTZ":
+//                                                       tv_title.setText("供配电设备台账增减申请");
+//                                                        break;
+//                                                    case "VENAPPLY":
+//                                                       tv_title.setText("供应商申请");
+//                                                        break;
+//                                                    case "JLTZ":
+//                                                       tv_title.setText("计量设备台账增减申请");
+//                                                        break;
+//                                                    case "WORKORDER":
+//                                                       tv_title.setText("领料申请单");
+//                                                        break;
+//                                                    case "SBTZ":
+//                                                       tv_title.setText("设备台账增减申请");
+//                                                        break;
+//                                                    case "SSTZ":
+//                                                       tv_title.setText("设施台账增减申请");
+//                                                        break;
+//                                                    case "WZBMSQ":
+//                                                       tv_title.setText("物资编码申请");
+//                                                        break;
                                                     case "UDMGPR":
                                                        tv_title.setText("物资采购申请");
+                                                        break;
+                                                    case "UDBGPR":
+                                                        tv_title.setText("办公用品采购申请");
+                                                        break;
+                                                    case "UDBGMR":
+                                                        tv_title.setText("办公用品需求申请");
+                                                        break;
+                                                    case "UDRFQ":
+                                                        tv_title.setText("采购询价单");
+                                                        break;
+                                                    case "UDUSE":
+                                                        tv_title.setText("工单领料");
+                                                        break;
+                                                    case "UDPO":
+                                                        tv_title.setText("非年度采购合同");
+                                                        break;
+                                                    case "UDBGPO":
+                                                        tv_title.setText("非年度办公用品采购订单");
+                                                        break;
+                                                    case "UDWOGZ":
+                                                        tv_title.setText("故障工单");
+                                                        break;
+                                                    case "UDWOZT":
+                                                        tv_title.setText("状态维修工单");
+                                                        break;
+                                                    case "UDWOPM":
+                                                        tv_title.setText("IT维修申请");
+                                                    case "POINVOICE":
+                                                        tv_title.setText("付款申请");
+                                                        break;
+                                                    case "UDWODXJ":
+                                                        tv_title.setText("点巡检工单");
+                                                        break;
+                                                    case "UDWOZG":
+                                                        tv_title.setText("整改工单");
+                                                        break;
+                                                    case "UDBGUSE":
+                                                        tv_title.setText("办公用品领料");
+                                                        break;
+                                                    case "UDBGYEARPO":
+                                                        tv_title.setText("年度办公用品采购订单");
+                                                        break;
+                                                    case "UDOSPR":
+                                                        tv_title.setText("外协服务申请单");
+                                                        break;
+                                                    case "UDINVRT":
+                                                        tv_title.setText("领用退库");
+                                                        break;
+                                                    case "UDOSPO":
+                                                        tv_title.setText("外协服务采购订单");
                                                         break;
 
                                                 }

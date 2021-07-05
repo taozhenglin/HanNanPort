@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Created by tzl
- * on 2020/12/16
+ * on 2020/12/16mon
  */
 public abstract class CommonAdapter<T> extends RecyclerView.Adapter<CommonViewHolder> {
     protected Context mContext;

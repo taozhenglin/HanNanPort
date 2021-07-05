@@ -59,25 +59,23 @@
         android:paddingTop="@dimen/dp5"
         android:paddingBottom="@dimen/dp5"
         android:id="@+id/ll_right"
-        android:visibility="gone"
 
         >
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="确定"
         android:textColor="@color/textColor"
         android:textSize="@dimen/sp14"
         />
 
     <ImageView
         android:id="@+id/iv_fun"
-        android:layout_width="14dp"
-        android:layout_height="13dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="@dimen/dp3"
-        android:src="@drawable/arrow_right_triangle"
         android:scaleType="fitXY"
+        android:padding="@dimen/dp5"
         />
     </LinearLayout>
 

@@ -307,7 +307,6 @@ public class PurContractDetailActivity extends AppCompatActivity implements View
 
     @Override
     public void onClick(View view) {
-
         switch (view.getId()) {
             case R.id.ll_back:
                 finish();

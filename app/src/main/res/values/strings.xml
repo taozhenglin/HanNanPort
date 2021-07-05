@@ -13,6 +13,8 @@
     <string name="An_hour_ago" translatable="false">小时前</string>
     <string name="just" translatable="false">刚刚</string>
     <string name="UNKNOW_ERROR">未知错误</string>
+    <string name="upLoadfailed">上传失败</string>
+    <string name="upLoadok">上传成功</string>
 </resources>
 
 
